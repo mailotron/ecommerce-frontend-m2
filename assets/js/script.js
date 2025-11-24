@@ -2,7 +2,7 @@ const productos = [
  {id:1, nombre:"Sobre Mega Evolution Pokemon", precio:5500, img:"assets/img/pokemon.jpg", desc:"Sobre de expansión mega evolution."},
  {id:2, nombre:"Legendary 5D's Yu-Gi-Oh!", precio:35000, img:"assets/img/yugioh.png", desc:"3 mazos conmemorativos de 5D's."},
  {id:3, nombre:"Sobre One Piece op13", precio:6000, img:"assets/img/op.png", desc:"Sobre de expansión op13 One Piece."},
- {id:4, nombre:"Sleeves standar", precio:3000, img:"assets/img/sleevees.jpg", desc:"Fundas protectoras para cartas."}
+ {id:4, nombre:"Sleeves standar", precio:3500, img:"assets/img/sleevees.jpg", desc:"Fundas protectoras para cartas."}
 ];
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
