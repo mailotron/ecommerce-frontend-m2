@@ -3,98 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>leccion 4</title>
-    <link rel="icon" href="assets/img/icon.ico" type="image/x-icon"><!--para agregar una imagen al nombre de la pestaña web-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><!--para llamar bootstrap por CDN-->
-    <link rel="stylesheet" type="text/css" href="assets/CSS/styles.css">
-    
+    <title>Tienda TCG</title>
+    <link rel="icon" href="assets/img/icon.png" type="image/x-png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
 </head>
+<body class="bg-light">
 
-<body>
-    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- agrego mi narvar -->
-      <div class="container">
-        <a class="navbar-brand" href="#">Café en Grano</a>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/img/logo.png" alt="Logo" style="width:40px; height:40px; margin-right:10px;">
+                ULTIMATE TCG ARENA
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="https://incapto.com/blog/tipos-de-cafe-en-grano/?srsltid=AfmBOoq38aC2muoyR9WIspxpz5jFugVQ6rmCgB1z2c9dTzrWl6DRbHDJ">Tipos</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/watch?v=SauDVtQjlRw">videos</a></li>
-          </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">
+                            Carrito <span class="badge bg-danger" id="carritoCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-      </div>
     </nav>
 
-    <div class="container">
-    <section class="hero d-flex align-items-center text-center text-white">
-    <div class="container">
-        <h1 class="display-4 fw-bold">Café en Grano</h1>
-        <p class="lead">Aroma, frescura y sabor directo desde el origen.</p>
-    </div>
-</section>
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Productos TCG</h1>
+        <section class="row g-4" id="productGrid"></section>
+    </main>
 
-    <p>El café en grano es el café que se presenta en su forma más natural tras el proceso de tostado, sin haber sido molido. 
-    A continuación te explico brevemente sus características y ventajas:</p><!--para agregar un parrafo-->
-    </div>
-
-    <div class="container">
-    <section>
-        <article>
-            <h2>Características del café en grano:</h2>
-            <ul>
-                <li>Origen: Proviene directamente de los granos tostados de la planta del café (arábica o robusta, principalmente).</li>
-                <li>Presentación: Se vende en granos enteros, que deben ser molidos antes de preparar la bebida.</li>
-                <li>Variedades: Hay diferentes tipos según su origen (Colombia, Etiopía, Brasil, etc.), nivel de tostado (claro, medio, oscuro) y mezcla.</li>
-            </ul><!--lista no ordenada-->
-        </article><!--se utiliza para dar un contenido completo-->
-        <img src="assets/img/cafesito.png" alt="taza de cafe" class="img-fluid d-block mx-auto" style="width:400px; height:300px;"><!--para agregar una imagen-->
-        <div class="text-center mt-3">
-    <button class="btn btn-warning" onclick="alertaCafe()">Ver mensaje</button>
-</div>
-
-
-        <article>
-            <h2>Ventajas del café en grano:</h2>
-            <ol>
-                <li>Mejor aroma y sabor: Al molerlo justo antes de prepararlo, conserva más aceites esenciales y aromas que el café molido.</li>
-                <li>Más frescura: El grano entero se oxida más lentamente que el café ya molido.</li>
-                <li>Control del molido: Puedes ajustar el grosor según el método de preparación (espresso, prensa francesa, moka, etc.).</li>
-                <li>Calidad: Generalmente, el café en grano es de mayor calidad y menos procesado que el instantáneo o el molido.</li>
-            </ol><!--lista ordenada numericamente-->
-        </article>
-         <img src="assets/img/cafesito2.png" alt="granoscafe" class="img-fluid d-block mx-auto" style="width:400px; height:300px;">
-    </section><!--esta es la columna principal-->
-    </div>
-    <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <!-- sección principal con artículos -->
+    <section class="container my-5 d-none" id="productDetails">
+        <button class="btn btn-secondary mb-3" onclick="volverInicio()">Volver</button>
+        <div class="row">
+            <div class="col-md-5">
+                <img id="detailImg" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-7">
+                <h2 id="detailName"></h2>
+                <p id="detailDesc"></p>
+                <h4 class="text-success">Precio: $<span id="detailPrice"></span></h4>
+                <button class="btn btn-primary mt-3" id="detailAddBtn">Agregar al Carrito</button>
+            </div>
         </div>
-        <div class="col-md-4">
-            <aside>
-                <h3>Cómo usarlo:</h3>
-                <ul>
-                    <li>Necesitas un molino de café (manual o eléctrico).</li>
-                    <li>Muele solo la cantidad que usarás en el momento.</li>
-                    <li>El tamaño de la molienda depende del método de preparación (fino para espresso, medio para filtro, grueso para prensa francesa).</li>
-                </ul>
-            </aside>
-        </div>
-    </div>
-</div>
-<div class="text-center mt-4">
-    <button id="btnTop" class="btn btn-success">Ir arriba</button>
-</div>
+    </section>
 
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Tienda TCG Simulada · Cartas Coleccionables</p>
+    </footer>
 
-    <footer>
-        <p>&copy; 2025 Café en Grano.</p>
-    </footer><!--es nuestro pie de pagina-->
-<script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
