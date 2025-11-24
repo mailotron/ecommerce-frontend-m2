@@ -1,0 +1,1 @@
+https://mailotron.github.io/ecommerce-frontend-m2/
